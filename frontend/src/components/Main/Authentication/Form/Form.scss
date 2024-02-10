@@ -1,0 +1,71 @@
+.form-wrapper {
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  margin-right: 15%;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+  .form-container {
+    padding: var(--component-padding);
+
+    p {
+      margin-bottom: 24px;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      margin-top: 24px;
+    }
+
+    .btn-box {
+      display: flex;
+      margin-bottom: 12px;
+      div:first-child {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--component-padding);
+  }
+
+  .form-button-wrapper {
+    margin-top: 48px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .auth-multi {
+    display: flex;
+    button {
+      margin-top: 4px;
+      margin-left: 8px;
+    }
+  }
+
+  .trim {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: var(--dark-blue);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  input[type='date']::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
+
+  input[type='date'] {
+    font-family: 'Maison Neue';
+  }
+
+  @media all and (max-width: 900px) {
+    margin-right: 0;
+  }
+}

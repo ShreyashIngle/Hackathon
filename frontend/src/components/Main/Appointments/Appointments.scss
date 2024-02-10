@@ -1,0 +1,600 @@
+.appointments-wrapper {
+  margin: 24px;
+
+  .rbc-overflowing {
+    border: unset;
+  }
+
+  .rbc-current-time-indicator {
+    background-color: var(--accent);
+    height: 2px;
+    opacity: 50%;
+    // position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      left: -8px;
+      width: 16px;
+      height: 16px;
+      background-color: var(--accent);
+      top: -325%;
+      opacity: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .rbc-time-content > * + * > * {
+    border-left: 1px solid var(--light-grey);
+  }
+
+  .rbc-time-content {
+    border-top: 1px solid var(--light-grey);
+  }
+
+  .rbc-timeslot-group {
+    border-bottom: 1px solid var(--light-grey);
+  }
+
+  .rbc-time-slot {
+    border-top: none;
+  }
+
+  .rbc-label {
+    color: var(--mid-grey);
+    font-size: 12px;
+  }
+
+  .rbc-time-view {
+    border: none;
+    border-top: 1px solid var(--light-grey);
+    box-shadow: var(--box-shadow);
+    border-radius: calc(var(--border-radius) / 2);
+  }
+
+  .rbc-header {
+    border-bottom: 1px solid var(--light-grey);
+    background-color: var(--navy-blue);
+  }
+
+  // .rbc-today {
+  //   // background-color: var(--light-blue) !important;
+  // }
+  .rbc-toolbar {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    .rbc-btn-group {
+      display: grid;
+      grid-template-columns: repeat(3, 70px);
+      gap: 8px;
+      @media all and (max-width: 820px) {
+        justify-content: center;
+      }
+      button {
+        padding: 12px 8px;
+        border: none;
+        outline: none;
+        border-radius: 32px;
+        color: white;
+        font-size: 12px;
+
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        background: var(--navy-blue);
+
+        // svg {
+        //   margin-right: 8px;
+        //   display: flex;
+        // }
+      }
+
+      .rbc-active {
+        background: var(--mid-blue);
+      }
+    }
+
+    .rbc-toolbar-label {
+      font-weight: 600;
+      font-size: 28px;
+      white-space: nowrap;
+
+      @media all and (max-width: 820px) {
+        font-size: 28px;
+        margin: 12px 0;
+      }
+    }
+
+    .rbc-btn-group:last-child {
+      justify-content: end;
+
+      @media all and (max-width: 820px) {
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 820px) {
+      grid-template-columns: 1fr;
+      margin-bottom: 24px;
+    }
+  }
+
+  .rbc-month-header {
+    background-color: var(--navy-blue);
+    padding: 12px;
+    color: white;
+  }
+
+  .rbc-header {
+    border: none;
+  }
+
+  .rbc-month-view {
+    border: none;
+    border-top: 1px solid var(--light-grey);
+    box-shadow: var(--box-shadow);
+    border-radius: calc(var(--border-radius) / 2);
+    overflow: hidden;
+  }
+
+  .rbc-event {
+    background-color: var(--dark-blue);
+    border: var(--black);
+    box-shadow: var(--box-shadow);
+    font-size: 0.875rem;
+  }
+
+  .rbc-allday-cell {
+    display: none;
+  }
+
+  .rbc-date-cell {
+    a {
+      font-size: 12px;
+      color: var(--dark-grey);
+    }
+  }
+
+  .rbc-time-header-content {
+    background-color: var(--navy-blue);
+    color: white;
+    padding: 12px;
+    border-left: none;
+
+    .rbc-today {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &::after {
+        content: '';
+        margin-top: -2px;
+        margin-left: 8px;
+        width: 8px;
+        height: 8px;
+        background-color: var(--light-blue);
+        border-radius: 50%;
+        // position: absolute;
+        left: 20%;
+
+        @media all and (max-width: 768px) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.calendar-form-wrapper {
+  margin: 24px 0 96px;
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+
+  .form-wrapper {
+    margin-right: 0;
+    overflow: visible;
+
+    .react-datepicker-wrapper {
+      width: 100%;
+      .react-datepicker__input-container {
+        width: 100%;
+        align-self: end;
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: var(--black);
+        margin-bottom: var(--component-padding);
+        input {
+          width: 100%;
+          padding: 12px;
+          border-radius: 4px;
+          border: none;
+          outline: none;
+          padding-left: 38px;
+          background: none;
+          color: var(--black);
+
+          border: 1px solid var(--light-grey);
+
+          &::placeholder {
+            color: #bfbfbf;
+          }
+        }
+      }
+    }
+
+    .appointment-time-slot-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      border: 1px solid var(--light-grey);
+      padding: 24px;
+      border-radius: 4px;
+
+      span {
+        margin-left: 16px;
+        font-size: 0.875rem;
+        display: flex;
+        line-height: 1;
+        margin-top: 2px;
+        @media all and (max-width: 530px) {
+          margin-left: 0px;
+        }
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+
+      & > div:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .time-slot {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+
+        span {
+          white-space: nowrap;
+        }
+
+        .appointment-time {
+          color: var(--mid-grey);
+        }
+
+        @media all and (max-width: 530px) {
+          display: grid;
+          grid-template-rows: 1rem 1rem;
+          gap: 12px;
+        }
+
+        div {
+          @media all and (max-width: 530px) {
+            span {
+              margin-left: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.react-datepicker-master-wrapper {
+  position: relative;
+  .date-label {
+    position: absolute;
+    font-size: 0.875rem;
+    color: var(--mid-grey);
+    transform: scale(0.8) translateY(-12px);
+    padding: 0 4px;
+    background-color: var(--white);
+    z-index: 1;
+  }
+
+  svg {
+    position: absolute;
+    margin-left: 12px;
+    top: 14px;
+    display: flex;
+  }
+}
+
+.tab-wrapper {
+  grid-column: 2/2;
+
+  .tab-container {
+    display: flex;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--light-grey);
+
+    h5 {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--mid-grey);
+      cursor: pointer;
+    }
+    h5:first-child {
+      margin-right: 24px;
+    }
+
+    .active {
+      border-bottom: 4px solid var(--black);
+      color: var(--black);
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    grid-column: 1/1;
+  }
+}
+
+.start-end-time-wrapper {
+  display: grid;
+  padding-top: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  h5 {
+    color: var(--mid-grey);
+  }
+
+  .start-end-time-container {
+    display: flex;
+    flex-direction: column;
+
+    .lunch-time {
+      position: relative;
+    }
+  }
+}
+
+#appointment-form-button-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  i {
+    display: flex;
+  }
+  .button-wrapper {
+    button {
+      padding: 8px;
+    }
+    svg {
+      position: unset;
+      margin-left: unset;
+      top: unset;
+      display: unset;
+    }
+  }
+
+  .checkbox-wrapper {
+    display: flex;
+  }
+
+  .grid-item {
+    display: flex;
+    font-size: 0.875rem;
+    & > :first-child {
+      margin-right: 12px;
+    }
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+
+      .option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        & > :first-child {
+          margin-right: 12px;
+        }
+
+        label {
+          white-space: nowrap;
+          user-select: none;
+        }
+      }
+    }
+  }
+}
+
+.react-datepicker {
+  display: flex !important;
+}
+
+input[type='radio'] {
+  border: 0px;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.appointments-profile-wrapper {
+  .rbc-overflowing {
+    border: unset;
+  }
+
+  .rbc-current-time-indicator {
+    background-color: var(--accent);
+    height: 2px;
+    opacity: 50%;
+    &::before {
+      position: absolute;
+      content: '';
+      left: -8px;
+      width: 16px;
+      height: 16px;
+      background-color: var(--accent);
+      top: -325%;
+      opacity: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .rbc-time-content > * + * > * {
+    border-left: 1px solid var(--light-grey);
+  }
+
+  .rbc-time-content {
+    border-top: 1px solid var(--light-grey);
+  }
+
+  .rbc-timeslot-group {
+    border-bottom: 1px solid var(--light-grey);
+  }
+
+  .rbc-time-slot {
+    border-top: none;
+  }
+
+  .rbc-label {
+    color: var(--mid-grey);
+    font-size: 12px;
+  }
+
+  .rbc-time-view {
+    border: none;
+    border-top: 1px solid var(--light-grey);
+    box-shadow: var(--box-shadow);
+    border-radius: calc(var(--border-radius) / 2);
+  }
+
+  .rbc-header {
+    border-bottom: 1px solid var(--light-grey);
+    background-color: var(--navy-blue);
+  }
+
+  .rbc-toolbar {
+    display: grid;
+    gap: 12px;
+    justify-items: center;
+    .rbc-btn-group {
+      display: grid;
+      grid-template-columns: repeat(3, 70px);
+      gap: 8px;
+      @media all and (max-width: 820px) {
+        justify-content: center;
+      }
+      button {
+        padding: 12px 8px;
+        border: none;
+        outline: none;
+        border-radius: 32px;
+        color: white;
+        font-size: 12px;
+
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        background: var(--navy-blue);
+
+        // svg {
+        //   margin-right: 8px;
+        //   display: flex;
+        // }
+      }
+
+      .rbc-active {
+        background: var(--mid-blue);
+      }
+    }
+
+    .rbc-toolbar-label {
+      font-weight: 600;
+      font-size: 28px;
+      white-space: nowrap;
+      grid-row: 1;
+      line-height: 1;
+      @media all and (max-width: 820px) {
+        font-size: 28px;
+        margin: 12px 0;
+      }
+    }
+
+    .rbc-btn-group:last-child {
+      @media all and (max-width: 820px) {
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 820px) {
+      grid-template-columns: 1fr;
+      margin-bottom: 24px;
+    }
+  }
+
+  .rbc-month-header {
+    background-color: var(--navy-blue);
+    padding: 12px;
+    color: white;
+  }
+
+  .rbc-header {
+    border: none;
+  }
+
+  .rbc-month-view {
+    border: none;
+    border-top: 1px solid var(--light-grey);
+    box-shadow: var(--box-shadow);
+    border-radius: calc(var(--border-radius) / 2);
+    overflow: hidden;
+  }
+
+  .rbc-event {
+    background-color: var(--dark-blue);
+    border: var(--black);
+    box-shadow: var(--box-shadow);
+    font-size: 0.675rem;
+  }
+
+  .rbc-allday-cell {
+    display: none;
+  }
+
+  .rbc-date-cell {
+    a {
+      font-size: 12px;
+      color: var(--dark-grey);
+    }
+  }
+
+  .rbc-time-header-content {
+    background-color: var(--navy-blue);
+    color: white;
+    padding: 12px;
+    border-left: none;
+
+    .rbc-today {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &::after {
+        content: '';
+        margin-top: -2px;
+        margin-left: 8px;
+        width: 8px;
+        height: 8px;
+        background-color: var(--light-blue);
+        border-radius: 50%;
+        // position: absolute;
+        left: 20%;
+
+        @media all and (max-width: 768px) {
+          display: none;
+        }
+      }
+    }
+  }
+}

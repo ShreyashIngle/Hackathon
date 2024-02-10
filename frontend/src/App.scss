@@ -1,0 +1,63 @@
+@import './configs/variables';
+@import './configs/reset';
+@import './configs/breakpoints';
+
+h1 {
+  font-family: 'Maison Neue';
+}
+
+.bold {
+  font-family: 'Maison Neue';
+  font-weight: 700;
+}
+
+.medium {
+  font-family: 'Maison Neue';
+  font-weight: 600;
+}
+
+.demi {
+  font-family: 'Maison Neue';
+  font-weight: 500;
+}
+
+.book {
+  font-family: 'Maison Neue';
+  font-weight: 400;
+}
+
+.light {
+  font-family: 'Maison Neue';
+  font-weight: 300;
+}
+
+.pink {
+  button {
+    background-color: var(--accent);
+  }
+}
+.navy {
+  button {
+    background-color: var(--navy-blue);
+  }
+}
+.dark {
+  button {
+    background-color: var(--dark-blue);
+  }
+}
+
+.light {
+  button {
+    background-color: var(--light-blue);
+    color: var(--black);
+  }
+}
+
+.mid {
+  button {
+    background-color: var(--mid-blue);
+    color: var(--black);
+    padding: 8px !important;
+  }
+}

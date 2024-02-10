@@ -1,0 +1,26 @@
+.authentication-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 24px;
+  gap: 24px;
+
+  .panel-l {
+    h1 {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    div {
+      margin-bottom: 24px;
+    }
+  }
+
+  @media all and (max-width: 900px) {
+    grid-template-columns: 0.5fr 1fr;
+  }
+
+  @media all and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
